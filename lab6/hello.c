@@ -100,16 +100,16 @@ static int __init initter(void)
 
 static void __exit exitter(void)
 {
-  struct own_list_head *container1 = head;
-  struct own_list_head *container2;
+  struct own_list_head *c1 = head;
+  struct own_list_head *c2;
 
-  while (container1 != NULL) {
-    container2 = container1;
+  while (c1 != NULL) {
+    c2 = c1;
 
-    pr_info("Time: %lld\n", container1->time);
+    pr_info("Time: %lld\n", c1->time);
 
-    container1 = container2->next;
-    kfree(container2);
+    c1 = c2->next;
+    kfree(c2);
   }
 }
 
